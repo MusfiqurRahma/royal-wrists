@@ -1,0 +1,13 @@
+
+Nav a{
+    text-decoration: none;
+}
+Nav a:hover{
+    background-color: rgb(138, 211, 211);
+}
+
+@media only screen and (max-width: 688px) {
+      .header-container h1{
+          color: black;
+      }
+}
