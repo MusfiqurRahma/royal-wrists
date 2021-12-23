@@ -17,6 +17,7 @@ const NavsAndHeader = () => {
                             <Nav.Link className='text-black fw-bold' as={Link} to="/home">Home</Nav.Link>
                             <Nav.Link className='text-black fw-bold' as={Link} to="/about">About</Nav.Link>
                             <Nav.Link className='text-black fw-bold' as={Link} to="/contact">Contact</Nav.Link>
+                            <Nav.Link className='text-black fw-bold' as={Link} to="/dashboard">Dashboard</Nav.Link>
                             <Nav.Link className='text-black fw-bold' as={Link} to="/login">Login</Nav.Link>
                             </Nav>                           
                             </Navbar.Collapse>                       

@@ -8,8 +8,8 @@ import {
 } from "../redux/actions/productActions";
 const ProductDetails = () => {
   const { productId } = useParams();
-  console.log(productId);
-  let product = useSelector((state) => state.product);
+  const product = useSelector((state) => state.product);
+  console.log(product[0]);
 
   const { image, title, price, name, description } = product;
   const dispatch = useDispatch();

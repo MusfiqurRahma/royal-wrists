@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { Button } from "react-bootstrap";
 
 const ProductComponent = () => {
-    const products = useSelector((state) => state.allProducts.products);
+  const products = useSelector((state) => state.allProducts.products);
     const renderList = products.map((product) => {
       const { _id,name, title, image, price } = product;
       return (

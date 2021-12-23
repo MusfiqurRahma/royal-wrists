@@ -34,7 +34,8 @@ const Footer = () => {
                   </Form.Group>
              </Col>
             </Row> 
-        </Container> <hr />
+        </Container>
+            <div style={{margin:'auto',borderTop:'1px solid gray',width:'100%'}}>
             <i className="fab fa-facebook" style={{
                 marginRight: '10px',
                 fontSize: '25px'
@@ -50,6 +51,7 @@ const Footer = () => {
                 , fontSize: '25px'
             }}></i>
             <p>© Copyright 2021 Royal Wrists.</p>
+            </div>
         </>
     );
 };

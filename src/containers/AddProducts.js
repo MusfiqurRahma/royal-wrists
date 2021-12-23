@@ -20,24 +20,62 @@ const AddProducts = () => {
    };
     return (
         <div>
-              <form onSubmit={handleSubmit(onSubmit)} style={{display:"flex",flexDirection:'column',width:'40%',margin:'auto'}}>
+            <h2 style={{marginRight:'90px',fontWeight:'900',marginTop:'20px'}}>Add Your Product From Here</h2>
+            <form onSubmit={handleSubmit(onSubmit)} style={{ display: "flex", flexDirection: 'column', width: '40%', margin: 'auto', marginTop: '30px' }}>
                 <input {...register("title")}
                     placeholder='Title'
+                    style={{
+                        width: '80%',
+                        padding: '8px',
+                        borderRadius: '10px',
+                        border: '1px solid gray',
+                        marginBottom:'5px'
+                    }}
                 />
                 <input {...register("name")}
                     placeholder='Products Name'
-                />
+                    style={{
+                        width: '80%',
+                        padding: '8px',
+                        borderRadius: '10px',
+                        border: '1px solid gray',
+                        marginBottom:'5px'
+                    }}/>
                 
                 <textarea {...register("description")}
                     placeholder='Products Description'
-                />
+                    style={{
+                        width: '80%',
+                        padding: '8px',
+                        borderRadius: '10px',
+                        border: '1px solid gray',
+                        marginBottom:'5px'
+                    }}/>
                 <input type="number" {...register("price")}
                     placeholder='Products Price'
-                />
+                    style={{
+                        width: '80%',
+                        padding: '8px',
+                        borderRadius: '10px',
+                        border: '1px solid gray',
+                        marginBottom:'5px'
+                    }}/>
                 <input type="imageUrl" {...register("image")}
                     placeholder='Products Image'
-                />
-                <input type="submit" />
+                    style={{
+                        width: '80%',
+                        padding: '8px',
+                        borderRadius: '10px',
+                        border: '1px solid gray',
+                        marginBottom:'5px'
+                    }}/>
+                <input type="submit" style={{
+                        width: '80%',
+                        padding: '8px',
+                        borderRadius: '10px',
+                        border: '1px solid gray',
+                        marginBottom:'5px'
+                    }}/>
             </form>
         </div>
     );
