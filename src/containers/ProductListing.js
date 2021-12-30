@@ -13,7 +13,7 @@ const ProductListing = () => {
   const dispatch = useDispatch();
   const fetchProducts = async () => {
     const response = await axios
-      .get("http://localhost:5000/AddProducts")
+      .get("http://localhost:5000/addProducts")
       .catch((err) => {
         console.log("Err: ", err);
       });

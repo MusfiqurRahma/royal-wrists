@@ -1,65 +1,58 @@
-import React, { useEffect } from "react";
-import axios from "axios";
-import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect } from 'react';
+import { Card, Button} from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 import {
   selectedProduct,
   removeSelectedProduct,
 } from "../redux/actions/productActions";
+
 const ProductDetails = () => {
-  const { productId } = useParams();
-  const product = useSelector((state) => state.product);
-  console.log(product[0]);
+  const {productId}= useParams();
+    const dispatch = useDispatch();
+    // console.log(productId);
 
-  const { image, title, price, name, description } = product;
-  const dispatch = useDispatch();
+    useEffect(() => {
+        fetch(`http://localhost:5000/addProducts/${productId}`)
+            .then(res => res.json())
+            .then(data => {
+                dispatch(selectedProduct(data[0]));
+                // console.log(data);
+            })
+        return () => {
+            dispatch(removeSelectedProduct());
+        }
+    }, [productId])
+  
+    const product = useSelector((state) => state.product);
+    console.log(product);
+    const { image,title, description, price} = product;
 
-  const fetchProductDetail = async (_id) => { 
-    const response = await axios
-      .get(`http://localhost:5000/AddProducts/${_id}`)
-      .catch((err) => {
-        console.log("Err: ", err);
-      });
-    dispatch(selectedProduct(response.data));
-  };
-
-  useEffect(() => {
-    if (productId && productId !== "") fetchProductDetail(productId);
-    return () => {
-      dispatch(removeSelectedProduct());
-    };
-  }, [productId]);
   return (
-    <div className="ui grid container">
-      {Object.keys(product).length === 0 ? (
-        <div>...Loading</div>
-      ) : (
-        <div className="ui placeholder segment">
-          <div className="ui two column stackable center aligned grid">
-            <div className="middle aligned row">
-              <div className="column lp">
-                  <img className="ui fluid image" src={image}/>
-              </div>
-              <div className="column rp">
-                <h1>{title}</h1>
-                <h2>
-                  <a className="ui teal tag label">${price}</a>
-                </h2>
-                <h3 className="ui brown block header">{name}</h3>
-                <p>{description}</p>
-                <div className="ui vertical animated button" tabIndex="0">
-                  <div className="hidden content">
-                    <i className="shop icon"></i>
-                  </div>
-                  <div className="visible content">Add to Cart</div>
-                </div>
-              </div>
+             <div>
+                <Card>
+                  <Card.Img
+                      variant="top"
+                      src={image} style={{
+                          width: '25%',
+                          margin: "auto"
+                      }} />
+                    <Card.Body>
+                        <Card.Title>{title}</Card.Title>
+                        <h3>${price}</h3>
+                        <Card.Text>
+                            {description}
+            </Card.Text>
+                      <Link to="/home">
+                          <Button>Go back Home</Button>
+                      </Link>
+                      <Button
+                          variant="outline-primary mx-2">Purchase</Button>
+                    </Card.Body>
+                </Card>
             </div>
-          </div>
-        </div>
-        
-      )}
-    </div>
+           
   );
 };
 

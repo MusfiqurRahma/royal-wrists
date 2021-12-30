@@ -9,13 +9,13 @@ const Dashboard = () => {
             <Row>
             <Navbar style={{backgroundColor:'#24272b'}}>
               <Container>
-                <Navbar.Brand href="#home" style={{color:'white'}}>Dashboard</Navbar.Brand>
+                <Navbar.Brand href="#home" style={{color:'white'}}>Royal Wrists Dashboard</Navbar.Brand>
                  <Navbar.Toggle />
                  <Navbar.Collapse className="justify-content-end">
                </Navbar.Collapse>
                 </Container>
                   </Navbar>
-                <Col xs={12} md={3} style={{backgroundColor:'gray',height:'92vh'}}>
+                <Col xs={12} md={3} style={{backgroundColor:'gray',height:'92vh'}}> <br/>
                     <Link to='/home' style={{
                         textDecoration: 'none',
                         color: 'white'

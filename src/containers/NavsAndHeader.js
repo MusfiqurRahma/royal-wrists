@@ -26,7 +26,7 @@ const NavsAndHeader = () => {
          <Row>
                 <Col xs={12} md={6} style={{marginTop:'100px'}}>
                     <h2 style={{fontWeight:'900'}}>FOR YOUR <span style={{color:'#FF8C00'}}>LUXURY & ELEGANT</span></h2>
-                    <h1 style={{fontWeight:'900',color:'#FF8C00'}}>UNISEX LEATHER</h1>
+                    <h1 style={{fontWeight:'900',color:'#FF8C00'}}>UNISEX WRISTS</h1>
                     <h6>Watch with glittering eyes the whole world around you.</h6>
                     <button style={{
                         border: '1px solid gray',
