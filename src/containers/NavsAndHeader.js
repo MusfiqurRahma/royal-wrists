@@ -1,24 +1,41 @@
 import React from 'react';
-import {Col, Container, Nav, Navbar, Row } from 'react-bootstrap';
+import { Col, Container, Nav, Navbar, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import logo from '../images/wrists-logo.png';
 import bannerImage from '../images/Watch_banner-2-removebg-preview.png';
 import './NavsAndHeader.css';
+import useAuth from '../hook/useAuth';
 
 const NavsAndHeader = () => {
+    const { user,logOut } = useAuth();
     return (
         <div style={{marginBottom:'100px'}}>
         <Navbar bg="light" variant="light" sticky='top' collapseOnSelect expand="lg" style={{backgroundColor:'#0a1735'}}>
                 <Container>
-                    <Navbar.Brand href="#home"><img style={{marginRight:'40%',width:'100px'}} src={logo} alt="" /></Navbar.Brand>
+                    <Navbar.Brand href="#home"><img style={{marginLeft:'60px',width:'100px'}} src={logo} alt="" /></Navbar.Brand>
                     <Navbar.Toggle />
-                    <Navbar.Collapse style={{marginLeft:'70%'}}>
+                    <Navbar.Collapse style={{marginLeft:'50%'}}>
                         <Nav className='text-primary'>
-                            <Nav.Link className='text-black fw-bold' as={Link} to="/home">Home</Nav.Link>
-                            <Nav.Link className='text-black fw-bold' as={Link} to="/about">About</Nav.Link>
-                            <Nav.Link className='text-black fw-bold' as={Link} to="/contact">Contact</Nav.Link>
-                            <Nav.Link className='text-black fw-bold' as={Link} to="/dashboard">Dashboard</Nav.Link>
-                            <Nav.Link className='text-black fw-bold' as={Link} to="/login">Login</Nav.Link>
+                            <Nav.Link className='text-black fw-bold navbar' as={Link} to="/home">Home</Nav.Link>
+                            <Nav.Link className='text-black fw-bold navbar' as={Link} to="/about">About</Nav.Link>
+                            <Nav.Link className='text-black fw-bold navbar' as={Link} to="/contact">Contact</Nav.Link>
+                            <Nav.Link className='text-black fw-bold navbar' as={Link} to="/dashboard">Dashboard</Nav.Link>
+                            
+                            {
+                                user.email ? <button
+                                    className='btn-login'
+                                    onClick={logOut}>Log Out</button> : <Link
+                                        className="btn-logout" to='/login'><button>Login</button></Link>
+                            }
+                            {
+                                user.email ? <img style={{
+                                    width: '40px', borderRadius: '50px',
+                                    marginLeft: '15px'
+                                }} src={user.photoURL} alt="" /> : <img
+                                    style={{ width: '40px', borderRadius: '50px', marginLeft: '15px' }} 
+                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDnvWTZm8CrKxV_zBpTI2Gdvbmy2-Az8CgNw&usqp=CAU" alt="" />
+                
+              }    
                             </Nav>                           
                             </Navbar.Collapse>                       
                 </Container>

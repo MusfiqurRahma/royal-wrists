@@ -1,13 +1,16 @@
-Nav a{
+.btn-login{
+    background-color: #ff8c00;
+    border: 1px solid gray;
+    font-weight: 700;
+}
+.btn-logout{
+    background-color: #ff8c00;
+    border: 1px solid gray;
+    font-weight: 700; 
+}
+.navbar{
     text-decoration: none;
 }
-Nav a:hover{
+.navbar:hover{
     background-color: #ff8c00;
-}
-
-
-@media only screen and (max-width: 688px) {
-      .header-container h1{
-          color: black;
-      }
 }
